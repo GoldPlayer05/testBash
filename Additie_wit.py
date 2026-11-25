@@ -25,7 +25,8 @@ newcameramtx = correction_data["newcameramtx"]
 # ------------------------------------------------------------------------------------------------------
 # Afmetingen van frame bijleveren 
 frame_width = 1280
-frame_height = 720
+# Nieuwe resolutie
+frame_height = 740
 
 # Het middenpunt van het frame bepalen, eerst normaal, dan gecorrigeerd 
 middenpunt_uncor = np.array([[[frame_width/2, frame_height/2]]], dtype=np.float32)
