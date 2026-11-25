@@ -1,0 +1,9 @@
+0	cor_mok
+1	koekenpan
+2	kookpan_groot
+3	kookpan_klein
+4	kookpan_middel
+5	kookpan_middelgroot
+6	mok
+7	mok_groot
+8	steelpan

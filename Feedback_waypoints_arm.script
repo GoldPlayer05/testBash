@@ -1,0 +1,3 @@
+socket_open("192.168.106.199", 5000)
+socket_send_string("WAYPOINT_1_BEREIKT")
+socket_close()

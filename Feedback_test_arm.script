@@ -1,0 +1,26 @@
+socket_open("192.168.106.199", 5000)
+socket_send_string("VOLGEND_WAYPOINT_BEREIKT", "SOCKET_1")
+socket_close()
+
+# Verbinding maken met de door Python gehoste server 
+rv = socket_open("192.168.106.199", 5000, "SOCKET_1")
+
+if rv:
+    # Bevestiging vragen
+    socket_send_string("VRAAG_OM_BEVESTIGING", "SOCKET_1")
+    
+    # Loopen tot go van Python
+    antwoord = ""
+
+    while (antwoord != "GA_VERDER"):
+        # read_line omdat dit tot de \n, daar niet read_string
+        antwoord = socket_read_line("SOCKET_1", timeout=5)
+        # Terugkoppeling naar de logs
+        textmsg("Dit is de antwoord:", antwoord)
+        sync()
+    end
+    
+    # Sluiten en terugkoppelen
+    textmsg("Gelukt, programma wordt hervat!")
+    socket_close("SOCKET_1")
+end

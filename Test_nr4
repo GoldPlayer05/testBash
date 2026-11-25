@@ -1,0 +1,38 @@
+import socket
+import time
+
+HOST = "192.168.106.199"
+PORT = 5000
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server_socket.bind((HOST, PORT))
+server_socket.listen(1)
+
+print(f"Server gestart! Wacht op verbinding van de robot...")
+
+try:
+    while True:
+        conn, addr = server_socket.accept()
+        print(f"\nVerbonden met robot! Wachten op bericht...")
+
+        # 1. Ontvang het bericht van de robot
+        data = conn.recv(1024).decode("utf-8").strip()
+        print(f"Ontvangen van robot: '{data}'")
+
+        if data == "VRAAG_OM_BEVESTIGING":
+            # Hier kun je in Python iets doen (bijv. wachten op een gebruikersinput of berekening)
+            input("Druk op [ENTER] in je terminal om de robot groen licht te geven...")
+
+            # 2. Stuur een succes-antwoord terug naar de robot
+            antwoord = "GA_VERDER\n"
+            conn.sendall(antwoord.encode("utf-8"))
+            print("Bevestiging gestuurd naar de robot!")
+            
+        time.sleep(0.2)
+        conn.close()
+
+except KeyboardInterrupt:
+    print("\nServer gestopt.")
+finally:
+    server_socket.close()
