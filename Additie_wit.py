@@ -12,6 +12,7 @@ import time
 
 # Dit is een aanpassing voor alleen de test branch
 # Dit is nog een aanpassing maar dan op Mac
+# Dit is een aanpassing voor enkel NogEentje
 
 # Eerder gegenereerde correctiedata voor camera inladen
 correction_data = np.load("camera_calibration.npz")
