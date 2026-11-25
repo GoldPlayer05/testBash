@@ -10,6 +10,8 @@ import socket
 import threading 
 import time
 
+# Dit is een aanpassing voor alleen de test branch
+
 # Eerder gegenereerde correctiedata voor camera inladen
 correction_data = np.load("camera_calibration.npz")
 mtx = correction_data["camera_matrix"]
