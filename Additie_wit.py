@@ -10,7 +10,7 @@ import socket
 import threading 
 import time
 
-# Dit is een aanpassing voor alleen de test branch
+# Dit is een aanpassing voor alleen de test branch / goofy
 # Dit is nog een aanpassing maar dan op Mac
 # Dit is een aanpassing voor enkel NogEentje
 
